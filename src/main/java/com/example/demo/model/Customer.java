@@ -4,39 +4,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-//@Data
-@Getter
-@Setter
+@Data
 @Entity
-public class Car {
-	
+public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
+	@NotNull
+	private String nome;
 	
 	@NotNull
-	private String modelo;
+	private Double saldoemconta;
 	
 	@NotNull
-	private Integer ano;
+	private Integer idade;
 	
 	@NotNull
-	private String tipo;
+	private String cpf;
 	
 	@NotNull
-	private String marca;
-	
-	@NotNull
-	private double valor;
-	
-	@NotNull
-	private String aroRoda;	
-	
-	@NotNull
-	private Integer qtdEstoque;
+	@Email
+	private String email;
 }
