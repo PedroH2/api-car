@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.business.CarBusiness;
+import com.example.demo.dto.CustomerDTO;
 import com.example.demo.model.Car;
 import com.example.demo.model.Customer;
 import com.example.demo.service.CarService;
@@ -37,8 +39,8 @@ public class CustomerController {
 		return customerService.findAll();
 	}
 	@PostMapping("customer")
-	public String save (@Valid @RequestBody Customer cust) {
-		customerService.save(cust);
+	public String save (@Valid @RequestBody CustomerDTO cust) {
+		customerService.save(cust.cliente());
 		return "Salvo";
 	}
 	@GetMapping("{id}")
@@ -46,8 +48,13 @@ public class CustomerController {
 		return customerService.findById(id);
 	}
 	@PutMapping("customer")
-	public Customer update(@Valid @RequestBody Customer cust) {
-		return customerService.update(cust);
+	public Customer update(@Valid @RequestBody CustomerDTO cust) {
+		return customerService.update(cust.cliente());
+	}
+	@DeleteMapping("{id}")
+	public String delete(@Valid @PathVariable Long id) {
+		customerService.delete(id);		
+		return "Deletado";
 	}
 	@GetMapping("comnome/{nome}")
 	public List<Customer> findByNome(@PathVariable String nome){

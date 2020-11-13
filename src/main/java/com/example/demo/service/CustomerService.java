@@ -37,4 +37,8 @@ public class CustomerService {
 		return customerBusiness.findByNome(nome);
 	}
 
+	public void delete(@Valid Long id) {
+		customerBusiness.delete(id);		
+	}
+
 }

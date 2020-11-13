@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.dto.CarDTO;
 import com.example.demo.model.Car;
 import com.example.demo.service.CarService;
 
@@ -29,8 +30,8 @@ public class CarController {
 		return carService.findAll();
 	}
 	@PostMapping("/car")
-	public String  salvaCarro(@Valid @RequestBody Car car) {
-		 carService.save(car);
+	public String  salvaCarro(@Valid @RequestBody CarDTO car) {
+		 carService.save(car.carro());
 		 
 		 return "carro salvo";
 	
@@ -40,8 +41,8 @@ public class CarController {
 		carService.delete(id);
 	}
 	@PutMapping("/car")
-	public Car atualizaCarro(@Valid @RequestBody Car car) {
-		return carService.update(car);
+	public Car atualizaCarro(@Valid @RequestBody CarDTO car) {
+		return carService.update(car.carro());
 	}
 	@GetMapping("/{id}")
 	public Car getCarroById(@PathVariable long id){

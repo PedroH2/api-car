@@ -32,14 +32,6 @@ public class CarService{
 		return carBusiness.save(car);
 		
 	}
-//	@Transactional
-//	public Car teste(Car car) {
-//		carBusiness.save(car);
-//		car.setModelo("vectra");
-//		carBusiness.update(car);
-//		return car;
-//	}
-//	
 	public Car findById(long id) {
 		return carBusiness.findById(id);
 	}

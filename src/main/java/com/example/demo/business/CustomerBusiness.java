@@ -49,4 +49,10 @@ public class CustomerBusiness {
 		return cust;
 	}
 
+	public void delete(@Valid Long id) {
+		Customer cust = new Customer();
+		cust.setId(id);
+		customerRepository.delete(cust);
+	}
+
 }
