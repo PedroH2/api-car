@@ -3,6 +3,7 @@ package com.example.demo.dto;
 import com.example.demo.model.Customer;
 
 import lombok.Data;
+import lombok.Setter;
 
 @Data
 public class CustomerDTO {
@@ -12,10 +13,10 @@ public class CustomerDTO {
 	private Integer idade;
 	private String cpf;
 	private String email;
-	
+
 	public Customer cliente() {
 		Customer cust = new Customer();
-		
+
 		cust.setId(this.id);
 		cust.setNome(this.nome);
 		cust.setSaldoemconta(this.saldoemconta);

@@ -66,31 +66,4 @@ public class CarBusiness {
 	public List<Car> saveAll(List<Car> car) {
 		return carRepository.saveAll(car);
 	}
-
-	public String Compra(Car car, Customer cust) {
-		double saldoPosCompra;
-
-		if (validaCompra(cust.getSaldoemconta(), car.getValor())) {
-			saldoPosCompra = cust.getSaldoemconta() - car.getValor();
-			cust.setSaldoemconta(saldoPosCompra);
-			customerService.update(cust);
-			if (car.getQtdEstoque() == 1) {
-				carService.delete(car.getId());
-			} else {
-				car.setQtdEstoque(car.getQtdEstoque() - 1);
-				carService.update(car);
-			}
-		} else {
-			return "Compra não efetuada";
-		}
-		return "Compra efetuada com sucesso!";
-	}
-
-	public boolean validaCompra(double saldo, double valorAdebitar) {
-		if (saldo < valorAdebitar)
-			return false;
-		else
-			return true;
-	}
-
 }

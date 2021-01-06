@@ -38,32 +38,38 @@ public class CustomerController {
 	public List<Customer> listCust(){
 		return customerService.findAll();
 	}
+
 	@PostMapping("customer")
 	public String save (@Valid @RequestBody CustomerDTO cust) {
 		customerService.save(cust.cliente());
 		return "Salvo";
 	}
+
 	@GetMapping("{id}")
 	public Customer findById(@PathVariable Long id) {
 		return customerService.findById(id);
 	}
+
 	@PutMapping("customer")
 	public Customer update(@Valid @RequestBody CustomerDTO cust) {
 		return customerService.update(cust.cliente());
 	}
+
 	@DeleteMapping("{id}")
 	public String delete(@Valid @PathVariable Long id) {
 		customerService.delete(id);		
 		return "Deletado";
 	}
+
 	@GetMapping("comnome/{nome}")
 	public List<Customer> findByNome(@PathVariable String nome){
 		return customerService.findByNome(nome);
 	}
+
 	@PutMapping("compra/{id}/{idCli}")
 	public String Compra(@Valid @PathVariable Long id, @PathVariable Long idCli) {
 		Car car = carService.findById(id);
 		Customer cust = customerService.findById(idCli);
-		return carbusiness.Compra(car, cust);
+		return customerService.Compra(car, cust);
 	}
 }

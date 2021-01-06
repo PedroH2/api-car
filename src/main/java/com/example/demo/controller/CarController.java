@@ -32,26 +32,28 @@ public class CarController {
 	@PostMapping("/car")
 	public String  salvaCarro(@Valid @RequestBody CarDTO car) {
 		 carService.save(car.carro());
-		 
 		 return "carro salvo";
-	
 	}
 	@DeleteMapping("/{id}")
 	public void deletaCarro(@PathVariable long id) {
 		carService.delete(id);
 	}
+
 	@PutMapping("/car")
 	public Car atualizaCarro(@Valid @RequestBody CarDTO car) {
 		return carService.update(car.carro());
 	}
+
 	@GetMapping("/{id}")
 	public Car getCarroById(@PathVariable long id){
 		return carService.findById(id);
 	}
+
 	@GetMapping("/car/{modelo}")
 	public List<Car> getCarroByModelo(@PathVariable String modelo) {
 		return carService.findByModelo(modelo);
 	}
+
 	@PostMapping("/car/salvarCarros")
 	public String salvaMultiplosCarros(@Valid @RequestBody List<Car> car) {
 		carService.saveAll(car);
