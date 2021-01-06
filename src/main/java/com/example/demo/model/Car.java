@@ -39,4 +39,5 @@ public class Car {
 	
 	@NotNull
 	private Integer qtdEstoque;
+
 }

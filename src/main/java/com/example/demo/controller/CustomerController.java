@@ -22,14 +22,11 @@ import com.example.demo.service.CarService;
 import com.example.demo.service.CustomerService;
 
 @RestController
-@RequestMapping("cliente/")
+@RequestMapping("/api/customer/")
 public class CustomerController {
 	
 	@Autowired
 	CustomerService customerService;
-	
-	@Autowired
-	CarBusiness carbusiness;
 	
 	@Autowired
 	CarService carService;
@@ -39,34 +36,34 @@ public class CustomerController {
 		return customerService.findAll();
 	}
 
-	@PostMapping("customer")
+	@PostMapping("saveCustomer")
 	public String save (@Valid @RequestBody CustomerDTO cust) {
 		customerService.save(cust.cliente());
 		return "Salvo";
 	}
 
-	@GetMapping("{id}")
+	@GetMapping("getCustomerById/{id}")
 	public Customer findById(@PathVariable Long id) {
 		return customerService.findById(id);
 	}
 
-	@PutMapping("customer")
+	@PutMapping("updateCustomer")
 	public Customer update(@Valid @RequestBody CustomerDTO cust) {
 		return customerService.update(cust.cliente());
 	}
 
-	@DeleteMapping("{id}")
+	@DeleteMapping("deleteCustomerById/{id}")
 	public String delete(@Valid @PathVariable Long id) {
 		customerService.delete(id);		
 		return "Deletado";
 	}
 
-	@GetMapping("comnome/{nome}")
+	@GetMapping("getCustomerByName/{nome}")
 	public List<Customer> findByNome(@PathVariable String nome){
 		return customerService.findByNome(nome);
 	}
 
-	@PutMapping("compra/{id}/{idCli}")
+	@PutMapping("buyCar/{id}/{idCli}")
 	public String Compra(@Valid @PathVariable Long id, @PathVariable Long idCli) {
 		Car car = carService.findById(id);
 		Customer cust = customerService.findById(idCli);

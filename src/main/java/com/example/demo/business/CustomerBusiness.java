@@ -44,7 +44,7 @@ public class CustomerBusiness {
 	public List<Customer> findByNome(String nome) {
 		List<Customer> cust = customerRepository.findByNome(nome);
 		
-		if(cust.isEmpty() == true)
+		if(cust.isEmpty())
 			throw new ResourceNotFoundException("Nenhum cliente com o nome: "+ nome+" foi encontrado");
 		return cust;
 	}

@@ -19,42 +19,44 @@ import com.example.demo.model.Car;
 import com.example.demo.service.CarService;
 
 @RestController
-@RequestMapping(value="/api")
+@RequestMapping(value="/api/car")
 public class CarController {
-	
+
 	@Autowired
 	private CarService carService;
-		
-	@GetMapping("/listAll")
+
+	@GetMapping("/findAll")
 	public List<Car> listaCarros(){
 		return carService.findAll();
 	}
-	@PostMapping("/car")
+
+	@PostMapping("/saveCar")
 	public String  salvaCarro(@Valid @RequestBody CarDTO car) {
 		 carService.save(car.carro());
 		 return "carro salvo";
 	}
-	@DeleteMapping("/{id}")
+
+	@DeleteMapping("/deleteCarById/{id}")
 	public void deletaCarro(@PathVariable long id) {
 		carService.delete(id);
 	}
 
-	@PutMapping("/car")
+	@PutMapping("/updateCar")
 	public Car atualizaCarro(@Valid @RequestBody CarDTO car) {
 		return carService.update(car.carro());
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/findCarById/{id}")
 	public Car getCarroById(@PathVariable long id){
 		return carService.findById(id);
 	}
 
-	@GetMapping("/car/{modelo}")
+	@GetMapping("/findCarByModel/{modelo}")
 	public List<Car> getCarroByModelo(@PathVariable String modelo) {
 		return carService.findByModelo(modelo);
 	}
 
-	@PostMapping("/car/salvarCarros")
+	@PostMapping("/saveMultipleCars")
 	public String salvaMultiplosCarros(@Valid @RequestBody List<Car> car) {
 		carService.saveAll(car);
 		return "Carros salvos";

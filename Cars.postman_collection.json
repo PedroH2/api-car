@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "b9725acb-2cae-4ea4-870a-da95c58b0b18",
+		"name": "Cars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cars",
+			"item": [
+				{
+					"name": "GetCars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCarsById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/car//findCarById/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"",
+								"findCarById",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCarsByModel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/car//findCarByModel/Astra",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"",
+								"findCarByModel",
+								"Astra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostCar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"modelo\": \"Astra\",\n        \"ano\": 1998,\n        \"tipo\": \"sedan\",\n        \"marca\": \"Chevrolet\",\n        \"valor\": 130.09,\n        \"aroRoda\": \"17\",\n        \"qtdEstoque\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/car/saveCar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"saveCar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostManyCars",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"modelo\": \"Fusca\",\n        \"ano\": 1998,\n        \"tipo\": \"sedan\",\n        \"marca\": \"Caminhonete\",\n        \"valor\": 130.09,\n        \"aroRoda\": \"17\",\n        \"qtdEstoque\": 1\n    },\n    {\n        \"modelo\": \"Astra\",\n        \"ano\": 1998,\n        \"tipo\": \"sedan\",\n        \"marca\": \"Chevrolet\",\n        \"valor\": 130.09,\n        \"aroRoda\": \"17\",\n        \"qtdEstoque\": 1\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/car/saveMultipleCars",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"saveMultipleCars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"modelo\": \"Fusca\",\n    \"ano\": 1998,\n    \"tipo\": \"sedan\",\n    \"marca\": \"Chevrolet\",\n    \"valor\": 130.09,\n    \"aroRoda\": \"17\",\n    \"qtdEstoque\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/car/updateCar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"updateCar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCar Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"modelo\": \"Fusca\",\n    \"ano\": 1998,\n    \"tipo\": \"sedan\",\n    \"marca\": \"Chevrolet\",\n    \"valor\": 130.09,\n    \"aroRoda\": \"17\",\n    \"qtdEstoque\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/car/deleteCarById/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"deleteCarById",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "GetCustomers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/customer/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customer",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCustomerById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/customer/getCustomerById/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customer",
+								"getCustomerById",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCustomerByname",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/customer/getCustomerById/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customer",
+								"getCustomerById",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCustomer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 9,\n        \"nome\": \"Pedro\",\n        \"saldoemconta\": 100.98,\n        \"idade\": 22,\n        \"cpf\": \"48022287830\",\n        \"email\": \"pedro.santos@matera.com\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/customer/updateCustomer",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customer",
+								"updateCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuyCar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 9,\n        \"nome\": \"Pedro\",\n        \"saldoemconta\": 100.98,\n        \"idade\": 22,\n        \"cpf\": \"48022287830\",\n        \"email\": \"pedro.santos@matera.com\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/customer/buyCar/12/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customer",
+								"buyCar",
+								"12",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCustomer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 9,\n        \"nome\": \"Pedro\",\n        \"saldoemconta\": 100.98,\n        \"idade\": 22,\n        \"cpf\": \"48022287830\",\n        \"email\": \"pedro.santos@matera.com\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/customer/deleteCustomerById/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customer",
+								"deleteCustomerById",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SaveCustomer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"nome\": \"Pedro\",\n        \"saldoemconta\": 12500.98,\n        \"idade\": 22,\n        \"cpf\": \"48022287830\",\n        \"email\": \"pedro.santos@matera.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/customer/saveCustomer",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customer",
+								"saveCustomer"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
