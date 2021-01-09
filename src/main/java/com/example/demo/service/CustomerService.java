@@ -2,11 +2,11 @@ package com.example.demo.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import com.example.demo.model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.flyway.FlywayDataSource;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.business.CustomerBusiness;
@@ -36,10 +36,7 @@ public class CustomerService {
 		return customerBusiness.findById(id);
 	}
 
-	public Customer update(@Valid Customer cust) {
-		return customerBusiness.update(cust);
-		
-	}
+	public Customer update(@Valid Customer cust) { return customerBusiness.update(cust); }
 
 	public List<Customer> findByNome(String nome) {
 		return customerBusiness.findByNome(nome);
@@ -49,6 +46,7 @@ public class CustomerService {
 		customerBusiness.delete(id);		
 	}
 
+	@Transactional
 	public String Compra(Car car, Customer cust) {
 		double saldoPosCompra;
 
