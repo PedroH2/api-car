@@ -1,0 +1,10 @@
+{
+	"schemaVersion" :1 ,
+	"dockerfileLines" : [
+		"FROM java:8",
+		"WORKDIR /app",
+		"ADD ./src/paygen.jar /app",
+		"EXPOSE 2000",
+		"CMD java -jar paygen.jar"
+	]
+}
