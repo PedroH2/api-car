@@ -1,4 +1,8 @@
-FROM adoptopenjdk/openjdk11:alpine
+FROM java:8
+WORKDIR /app
+ADD ./paygen.jar /app
+EXPOSE 3000
+CMD java -jar paygen.jar
 
 # java -jar /usr/local/runme/app.jar
 ENTRYPOINT ["java","-jar","app.jar"]
